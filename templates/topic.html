@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<!-- <div  class="btn btn-success mb-lg-4 mt-lg-3">total of Board is : {{board.count}}</div> <br> -->
+
+<h5><a href="{%url 'index'%}">Home</a> ||<span><h5 style="color:orange;font-size: 25px;font-family: :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{board.board}}</h5></span></h5>
+
+
+<!-- <h2 style="color:orange"><a href="{% url 'index'%}"><h5>Home Page</h5> </a> + {{board.board}}</h2> -->
+
+<table class="table mt-lg-4">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name of Board</th>
+        <th scope="col">Discrption</th>
+        <th scope="col">Date Of Add  </th>
+        <th scope="col">Created by </th>
+      </tr>
+    </thead>
+    <tbody>
+
+   
+        <tr>
+          <td scope="col"><a href="{% url 'topic' board.id%}">{{board.id}}</a></td>
+
+          <td scope="col"><a href="{% url 'topic' board.id%}">{{board.board}}</a></td>
+          <!-- <th scope="col">{{n.describtion}}</th> -->
+          <!-- <th scope="col">{{n.count}}</th> -->
+          <!-- <th scope="col">{{board.count}}</th> -->
+          <th scope="col">{{board.describtion}}</a></th>
+          
+          
+          <th scope="col">{{board.create_dt}}</th>
+          <th scope="col">name of : {{user}}</a></th>
+        </tr>
+    </tbody>
+  </table>
+{%endblock%}
+
+

@@ -1,0 +1,46 @@
+
+{%extends 'base.html'%}
+
+{%block content%}
+<!-- <h1 class="te">this index page ... obeid </h1> -->
+<div class="btn btn-success mb-lg-4 mt-lg-3">total of Board is : {{board.count}}</div>
+
+
+<h2><div class="alert alert-primary text-danger"><i  class="fa fa-book" aria-hidden="true"> this Board Category </i></div></h2>
+<table class="table mt-lg-4">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name of Board</th>
+        <th scope="col">Count_of_ Post</th>
+        <th scope="col">Count of views </th>
+        <th scope="col">Created by </th>
+        <th scope="col">created date </th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {%for n in board%}
+   
+        <tr>
+          <td scope="col"><a href="{% url 'topic' n.id%}">{{n.id}}</a></td>
+
+          <td scope="col"><a href="{% url 'topic' n.id%}">{{n.board}}</a><br>
+          <p class="text-success">{{n.describtion |slice:30}}</p>
+          </td>
+          <!-- <th scope="col">{{n.describtion}}</th> -->
+          <!-- <th scope="col">{{n.count}}</th> -->
+          <!-- <th scope="col">{{board.count}}</th> -->
+          <th scope="col"><a href="{% url 'topic' n.id%}">Details</a></th>
+          
+          
+          <th scope="col"><a href="{% url 'topic' n.id%}">{{n.create_dt}}</a></th>
+          <th scope="col"><a href="{% url 'topic' n.id%}">{{user}}</a></th>
+          <th scope="col"><a href="{% url 'topic' n.id%}">{{n.create_dt}}</a></th>
+        </tr>
+     {%endfor%}
+    </tbody>
+  </table>
+
+{{f}}
+{%endblock%}
