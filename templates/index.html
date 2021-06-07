@@ -25,7 +25,7 @@
         <tr>
           <td scope="col"><a href="{% url 'topic' n.id%}">{{n.id}}</a></td>
 
-          <td scope="col"><a href="{% url 'topic' n.id%}">{{n.board}}</a><br>
+          <td scope="col"><a href="{% url 'topic' n.id %}">{{n.board}}</a><br>
           <p class="text-success">{{n.describtion |slice:30}}</p>
           </td>
           <!-- <th scope="col">{{n.describtion}}</th> -->
