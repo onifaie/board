@@ -2,6 +2,8 @@
 
 {%block content%}
 
+<div class="btn btn-success mb-lg-4 mt-lg-3">Add New Post</div>
+<h1>this Posts for {{mytopic.board}}</h1>
 <table class="table mt-lg-4">
   <thead class="bg-dark text-white">
     <tr>
@@ -26,7 +28,7 @@
         <!-- <th scope="col">{{n.describtion}}</th> -->
         <!-- <th scope="col">{{n.count}}</th> -->
         <!-- <th scope="col">{{board.count}}</th> -->
-        <th scope="col"><a href="{% url 'topic' n.id%}">Details</a></th>
+        <!-- <th scope="col"><a href="{% url 'topic' n.id%}">{{n.get_total_topic}}</a></th> -->
         
         
         <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topcreated_by}}</a></th>

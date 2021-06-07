@@ -9,7 +9,8 @@ from board import models
 
 def index(request):
 
-    myboard=board.objects.all().order_by('-id')
+    myboard=board.objects.all()
+    print(topic.topboard)
 
 
     context={
@@ -19,7 +20,8 @@ def index(request):
 
 
 def topicc(request,id):
-        mytopic=get_list_or_404(topic,topboard_id=id)
+        # mytopic=get_list_or_404(topic,topboard_id=id)
+        mytopic=topic.objects.filter(topic=id)
 
             
         context={
