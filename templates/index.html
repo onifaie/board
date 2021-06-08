@@ -7,17 +7,17 @@
 
 
 <h2><div class="alert alert-primary text-danger"><i  class="fa fa-book" aria-hidden="true"> this Board Category </i></div></h2>
-<table class="table mt-lg-4">
+<table class="table mt-lg-4 table-responsive text-lg-center">
     <thead class="bg-dark text-white">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">No</th>
         <th scope="col">Name of Board</th>
         <!-- <th scope="col">post</th> -->
-        <th scope="col">last Post on this Topic </th>
-        <th scope="col">Date of  last Entirey </th>
-        <th scope="col">count of Topic  </th>
-
-      
+        <th scope="col">topics </th>
+        <th scope="col">posts  </th>
+        <th scope="col">last post  </th>
+        <th scope="col">Date add  </th>
+       
       </tr>
     </thead>
     <tbody>
@@ -26,12 +26,19 @@
    
         <tr>
           <td  scope="col "><a href="{% url 'topic' n.id%}">{{n.id}}</a></td>
-          <td style="font-weight: bold;" scope="col"><a href="{% url 'topic' n.id %}">{{n.board}} >> <span style="color:Red">Count_Topic</span>({{n.get_total_topic}})</a>
+          <td  scope="col " ><a style="color: orange;font-weight: bold;" href="{% url 'topic' n.id%}">{{n.board}}</a></td>
+          <td  scope="col "><a href="{% url 'topic' n.id%}">{{n.topics.count}}</a></td>
+          <!-- <td style="font-weight: bold;" scope="col"><a href="{% url 'topic' n.id %}">{{n.board}}/>                      -->
+          <!-- <td  scope="col"><a href="{% url 'topic' n.id%}">{{n.id}}</a></td> -->
+          <!-- <span style="color:rgb(32, 119, 11)">Count_topic</span>({{n.topics.count}})</a> -->
+          <!-- <td  scope="col "><a href="{% url 'topic' n.id%}">{{n.topics.count}}</a></td> -->
+          <!-- &<span style="color:Red">Count_Post</span>({{n.get_count_post}}) -->
+          <td  scope="col "><a href="{% url 'topic' n.id%}">{{n.get_count_post}}</a></td>
           <!-- <th scope="col"><a href="{% url 'topic' n.id%}">{{n.get_total_topic}}</a></th> -->
           
           <th scope="col"><a href="{% url 'topic' n.id%}">
             {% with topic=n.get_last_topic%}
-            {{topic.message}}
+            {{topic.message|slice:20}}
             {%endwith%}
 
           </a></th>

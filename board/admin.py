@@ -19,7 +19,7 @@ class admintopic(admin.ModelAdmin):
 
 @admin.register(post)
 class adminpost(admin.ModelAdmin):
-    list_display=['topic','create_dt','id','message']
+    list_display=['topic','create_dt','id']
     # list_display_links=['toptitle']
     search_fields=['message']
 

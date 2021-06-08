@@ -12,10 +12,15 @@ class board(models.Model):
     def __str__(self):
         return self.board
 
-    def get_total_topic(self):
-        print(post.objects.filter(topic__topboard=self).count())
+    def get_count_post(self):
+        # print(post.objects.filter(topic__topboard=self).count())
        
         return  post.objects.filter(topic__topboard=self).count()
+
+    def get_count_tpoic(self):
+        # print(post.objects.filter(topic__topboard=self).count())
+       
+        return  topic.objects.filter(board__board=self).count()
 
 
     def get_last_topic(self):
@@ -41,7 +46,14 @@ class topic(models.Model):
 
 
     def __str__(self):
-        return '{}'.format(self.topboard)
+        return '{}'.format(self.toptitle)
+
+    def get_count_tpoic(self):
+        # print(post.objects.filter(topic__topboard=self).count())
+       
+        return  topic.objects.filter(topic__topic=self).count()
+
+
 
   
     
@@ -52,6 +64,15 @@ class post(models.Model):
     create_dt=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{}'.format(self.message)
+        return " this topic " + '{}'.format(self.topic)
+
+    # def get_count_tpoic(self):
+    #     # print(post.objects.filter(topic__topboard=self).count())
+       
+    #     return  topic.objects.filter(topics__topic=self).count()
+
+
+
+    
 
     
