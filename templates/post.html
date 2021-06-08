@@ -24,7 +24,7 @@
       {%for n in mypost.all%}
  
       <tr>
-        <td scope="col"><a href="{% url 'topic' n.id%}">{{n.message}}</a></td>
+        <td scope="col"><a href="{% url 'DetailsPost' n.id%}">{{n.message}}</a></td>
         <td scope="col"><a href="{% url 'topic' n.id%}">{{n.create_by}}</a></td>
         <td scope="col"><a href="{% url 'topic' n.id%}">{{n.create_dt}}</a></td>
       

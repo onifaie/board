@@ -39,4 +39,7 @@ def postt(request,id):
 
 
 
-  
+def DetailsPostt(request,id):
+    DetailsPost=post.objects.get(pk=id)
+    print(DetailsPost)
+    return render(request,'DetailsPost.html',{'DetailsPost':DetailsPost})

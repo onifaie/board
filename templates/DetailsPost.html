@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="btn btn-primary mb-lg-4 mt-lg-3">Details Post  </div>
+<!-- <h1>this Posts for {{myboard.board}}</h1> -->
+<table class="table mt-lg-4">
+  <thead class="bg-dark text-white">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name of topic</th>
+      <th scope="col">name Board</th>
+      <th scope="col">post </th>
+      <th scope="col">view </th>
+      <th scope="col">Created by </th>
+      <th scope="col">created date </th>
+    </tr>
+  </thead>
+  <tbody>
+{{DetailsPost}}
+   
+ 
+      <tr>
+        <td scope="col"><a href="#">{{DetailsPost.message}}</a></td>
+
+      </tr>
+  </tbody>
+</table>
+
+
+{%endblock%}
+
+

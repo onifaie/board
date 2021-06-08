@@ -29,18 +29,21 @@
       <tr>
         <td scope="col"><a href="#">{{n.id}}</a></td>
 
-        <td scope="col"><a href="{% url 'post' n.id %}">{{n.toptitle}}</a><br>
+        <td scope="col"><a href="{% url 'DetailsPost' n.id %}"><h6 style="color:crimson;">{{n.toptitle}}</h6></a><br>
         <!-- <p class="text-success">{{n.toptitle |slice:30}}</p> -->
         </td>
         <!-- <th scope="col">{{n.topcreated_by}}</th> -->
         <th scope="col">{{n.topdate_add}}</th>
         <!-- <th scope="col">{{board.count}}</th> -->
-        <th scope="col"><a href="{% url 'topic' n.id%}">{{n.get_count_topic}}</a></th>
+        <th scope="col"><a href="{% url 'topic' n.id%}">
+          {{mytopic.count}}</a>
+        </th>
         
         
-        <!-- <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topics.id}}</a></th>
+        <!--  <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topics.id}}</a></th> -->
         <th scope="col"><a href="{% url 'topic' n.id%}">{{user}}</a></th>
-        <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topics.id}}</a></th> -->
+        <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topdate_add}}</a></th> 
+        <th scope="col"><a href="{% url 'topic' n.id%}">{{n.topcreated_by}}</a></th> 
       </tr>
    {%endfor%}
   </tbody>

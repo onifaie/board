@@ -48,11 +48,10 @@ class topic(models.Model):
     def __str__(self):
         return '{}'.format(self.toptitle)
 
-    def get_count_tpoic(self):
+    def get_count_post(self):
         # print(post.objects.filter(topic__topboard=self).count())
        
-        return  topic.objects.filter(topic__topic=self).count()
-
+        return  post.objects.filter(topic__topic=self).count()
 
 
   
