@@ -1,0 +1,33 @@
+
+ {%extends 'base.html'%}
+
+ {% block content %}
+ <div class="mb-4">
+     <a href="{% url 'New_Topic' board.id%}" class="btn btn-primary">New topic</a>
+ </div>
+ 
+ <table class="table">
+     <thead class="thead-dark">
+     <tr>
+         <th>Topic</th>
+         <th>Created by</th>
+         <th>Posts</th>
+         <th>Views</th>
+         <th>Created dt</th>
+     </tr>
+     </thead>
+     <tbody>
+     {%for topic in board.Topic_Board.all%}
+     <tr>
+         <td>{{ topic.toptitle}}</td>
+         <td>{{ topic.topcreated_by.username}}</td>
+         <td>0</td>
+         <td>0</td>
+         <td>{{ topic.topdate_add}}</td>
+ 
+     </tr>
+     {%endfor%}
+ 
+     </tbody>
+ </table>
+ {% endblock %}

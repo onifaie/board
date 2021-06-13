@@ -2,11 +2,26 @@ from django.urls import path , include
 
 from . import views
 
+# app_name='board'
+
 urlpatterns = [
-    path('',views.index,name='index'),
-    # path('Details/<int:board_id>',views.Details,name='Details'),
-    path('topic/<int:id>/',views.topicc, name='topic'),
-    path('post/<int:id>/',views.postt, name='post'),
-    path('DetailsPost/<int:id>/',views.DetailsPostt, name='DetailsPost'),
+
+    path('',views.list_Board,name='list_Board'),
+    path('list_Topic/<int:id>/',views.list_Topics,name='list_Topic'),
+    # path('New_Topic/<int:id>/new',views.New_Topics,name='New_Topic'),
+    path('New_Topic/<int:id>/',views.New_Topics,name='New_Topic'),
+   
+   
+   
+   
+   
+   
+   
+    # path('list_topic/<int:id>/',views.list_topic, name='list_topic'),
+    # path('addnew',views.newaddt, name='addnew'),
+    # path('addnewtopic',views.addnewtopicc, name='addnewtopic'),
+    # path('addnewboard',views.addnewboard, name='addnewboard'),
+    # path('addnewPost/<int:id>/',views.addnewPost, name='addnewPost'),
+    # path('DetailsPost/<int:id>/',views.DetailsPost, name='DetailsPost'),
 
 ]

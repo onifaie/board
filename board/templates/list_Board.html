@@ -1,0 +1,54 @@
+
+{%extends 'base.html'%}
+
+{%block content%}
+<!-- <h1 class="te">this index page ... obeid </h1> -->
+<!-- <div class="btn btn-success mb-lg-4 mt-lg-3">total of Board is : {{board.count}}</div> -->
+
+
+<h5><div class="alert alert-success text-dark">منتدى لغات البرمجة للمناقشة </div></h5>
+<table class="table mt-lg-4 table-bordered text-lg-center">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">المنتدى</th>
+        <th scope="col">م العناوين  </th>
+        <th scope="col">م الموضوعات   </th>
+        <th scope="col">آخر اضافة  </th>
+        <th scope="col">تاريخ الاضافة  </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for n in Data %}
+   
+        <tr>
+          <td  scope="col "><a href="#">{{n.id}}</a></td>
+          <td  scope="col " ><a style="color:blue;font-size: 12px;text-decoration: none;" href="{% url 'list_Topic' n.id%}">{{n.board}}</a></td>
+          <td  scope="col "><a href="#">{{n.id}}</a></td>
+          <td  scope="col "><a href="#">test</a></td>
+          
+          <td scope="col"><a href="#">
+     
+          </a></td>
+          <td scope="col"><a href="#">
+
+           
+
+          </a>
+              
+          
+          </td>
+
+
+
+          
+         
+        </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+
+
+{%endblock%}

@@ -1,45 +1,82 @@
-from django.shortcuts import render,get_list_or_404,get_object_or_404
+from django.http.response import HttpResponsePermanentRedirect, HttpResponseRedirect
+from django.shortcuts import redirect, render,get_list_or_404,get_object_or_404
 from django.http import HttpResponse
+from .forms import BoardFlorm, TopicForm
+from .models import Board,Topic,Post,User
 
-from django.contrib.auth import  user_logged_in
+import sys 
+sys.setcheckinterval(2010)
 
-# Create your views here.
-from .models import board,topic,post
-from board import models
-
-def index(request):
-
-    myboard=board.objects.all()
-    print(topic.topboard)
+def list_Board(request):
+    Data=Board.objects.all()
+    return render(request,'list_Board.html',{'Data':Data})
 
 
-    context={
-        'board':myboard,
-    }
-    return render(request,'index.html',context)
+def list_Topics(request,id):
+   
+    board = get_object_or_404(Board,pk=id)
+    return render(request,'list_Topic.html',{'board':board})
+
+ 
+   
+    
 
 
-def topicc(request,id):
+# def New_Topics(request,id):
+#     board = get_object_or_404(Board,pk=id)
+#     print(board)
+#     user = User.objects.first()
+#     form=TopicForm()
+#     print(form)
+#     if request.method == "POST":
 
-        # mytopic=get_list_or_404(topic,topboard_id=id)
-        # mytopic=topic.objects.filter(topic=id)
-        # mytopic= topic.objects.filter(topboard=id)
-
-        mytopic= topic.objects.filter(topboard=id)
-        print(board)
-      
-        return render(request,'topic.html',{'mytopic':mytopic})
+#         form=TopicForm(data=request.post)
         
+#         if form.is_valid():
+#             topic = form.save(commit=False)
+#             topic.topboard=board
+#             topic.topcreated_by=user
+#             topic.save()
+#             post=Post.objects.create(
+#                 message=form.cleaned_data.get('msg'),
+#                 created_by=user,
+#                 topic=topic
 
-def postt(request,id):
+#             )
+#             print(post)
+#             return redirect('list_Topic',id=board.pk)
+#     else:
+#         print('this form wrong ???????????')
+#         form = TopicForm()
 
-    mypost=post.objects.filter(topic=id)
-    print(mypost)
-    return render(request,'post.html',{'mypost':mypost})
+#         return render(request,'new_topic.html',{'board':board,'form':form})
 
 
+def New_Topics(request,id):
+    board = get_object_or_404(Board,pk=id)
+    print(board.pk)
+    user = User.objects.first()
+    form =TopicForm()
 
-def DetailsPostt(request,id):
-    DetailsPost=post.objects.get(pk=id)
-    print(DetailsPost)
-    return render(request,'DetailsPost.html',{'DetailsPost':DetailsPost})
+    if request.method=="POST":
+        print(user)
+
+        form =TopicForm(request.POST)
+        print(form)
+        if form.is_valid():
+            topic = form.save(commit=False)
+            topic.topboard = board
+            topic.topcreated_by = user
+            topic.save()
+
+            post = Post.objects.create(
+                message=form.cleaned_data.get('msg'),
+                create_by = user,
+                topic=topic
+
+            )
+            return redirect('list_Topic',id=board.pk)
+    else:
+        form =TopicForm()
+
+    return render(request,'New_Topic.html',{'board':board,'form':form})
