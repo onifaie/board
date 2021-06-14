@@ -3,9 +3,18 @@
 
  {% block content %}
  <div class="mb-4">
-     <a href="{% url 'New_Topic' board.id%}" class="btn btn-primary">New topic</a>
+     <a href="{% url 'New_Topic' board.id%}" class="btn btn-primary">اضافة موضوع جديد </a>
  </div>
+
+
+<div class="alert alert-success">
+    <button type="button" style="text-align: center;box-shadow: 0ex;" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>قسم </strong> {{board.board}}
+
+</div>
+
  
+
  <table class="table">
      <thead class="thead-dark">
      <tr>

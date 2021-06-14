@@ -12,10 +12,10 @@
       <tr>
         <th scope="col">No</th>
         <th scope="col">المنتدى</th>
-        <th scope="col">م العناوين  </th>
-        <th scope="col">م الموضوعات   </th>
+        <th scope="col">م العموضوعات </th>
+        <th scope="col">الموضوع الاخير </th>
         <th scope="col">آخر اضافة  </th>
-        <th scope="col">تاريخ الاضافة  </th>
+        <th scope="col">أخر موضوع تمتة اضافته  </th>
        
       </tr>
     </thead>
@@ -24,18 +24,29 @@
         {% for n in Data %}
    
         <tr>
-          <td  scope="col "><a href="#">{{n.id}}</a></td>
+          <td  scope="col "><a >{{n.id}}</a></td>
           <td  scope="col " ><a style="color:blue;font-size: 12px;text-decoration: none;" href="{% url 'list_Topic' n.id%}">{{n.board}}</a></td>
-          <td  scope="col "><a href="#">{{n.id}}</a></td>
-          <td  scope="col "><a href="#">test</a></td>
+          <td  scope="col "><a >{{n.Topic_Board.count}}</a></td>
+          <td  scope="col "><a >{{n.describtion|slice:25}}</a></td>
           
-          <td scope="col"><a href="#">
-     
+          <td scope="col"><a>
+          <!-- {{n.Topic_Board.count}}  -->
+
+          {% with post=n.get_last_topic%}
+          {%if post%}
+          by {{post.create_by.username}} at {{post.create_dt}}
+         {%else%}
+          <small>No Posts</small>
+          {%endif%}
+          {%endwith%}
+
+
           </a></td>
-          <td scope="col"><a href="#">
+          <td scope="col"><a>
+            
 
-           
-
+            {{n.get_last_topic}}
+         
           </a>
               
           

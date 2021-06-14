@@ -10,15 +10,13 @@ class Board(models.Model):
     def __str__(self):
         return self.board
 
-    def get_count_post(self):
-        # print(post.objects.filter(topic__topboard=self).count())
+    # def get_count_post(self):
        
-        return  post.objects.filter(topic__topboard=self).count()
+    #     return  Topic.objects.filter(topic__topboard=self.pk).count()
 
-    def get_count_tpoic(self):
-        # print(post.objects.filter(topic__topboard=self).count())
+    # def get_count_tpoic(self):
        
-        return  topic.objects.filter(board__board=self).count()
+    #     return  Topic.objects.filter(board__board=self.pk).count()
 
 
     def get_last_topic(self):
@@ -63,8 +61,14 @@ class Post(models.Model):
     def __str__(self):
         return " this topic " + '{}'.format(self.topic)
 
- 
+    def get_count_postm(self):
+        # print(post.objects.filter(topic__topboard=self).count())
+       
+        return  Post.objects.filter(topic__topic=self).count()
 
+
+  
+    
 
     
 
